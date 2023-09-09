@@ -16,23 +16,15 @@
  */
 
 import { refs } from './js/refs';
-import { addCart, removeCart } from './js/localStorageAPI';
-import { createCart } from './js/createCart';
 import { renderCarts } from './js/renderCarts';
-import { renderCard } from './js/renderCard';
 import { deleteCard } from './js/deleteCard';
+import { onFormSubmit } from './js/onFormSubmit';
 
 refs.form.addEventListener('submit', onFormSubmit);
+refs.list.addEventListener("click", deleteCard);
+
 renderCarts();
 
-function onFormSubmit(event) {
-  event.preventDefault();
 
-  const cart = createCart();
-  addCart(cart);
-  renderCard(cart);
-  event.currentTarget.reset();
-}
 
-refs.list.addEventListener("click", deleteCard);
 
