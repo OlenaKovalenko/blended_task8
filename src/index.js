@@ -16,10 +16,11 @@
  */
 
 import { refs } from './js/refs';
-import { addCart } from './js/localStorageAPI';
+import { addCart, removeCart } from './js/localStorageAPI';
 import { createCart } from './js/createCart';
 import { renderCarts } from './js/renderCarts';
 import { renderCard } from './js/renderCard';
+import { deleteCard } from './js/deleteCard';
 
 refs.form.addEventListener('submit', onFormSubmit);
 renderCarts();
@@ -32,3 +33,6 @@ function onFormSubmit(event) {
   renderCard(cart);
   event.currentTarget.reset();
 }
+
+refs.list.addEventListener("click", deleteCard);
+
