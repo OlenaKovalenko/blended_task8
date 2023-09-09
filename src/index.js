@@ -18,13 +18,18 @@
 import { refs } from './js/refs';
 import { addCart } from './js/localStorageAPI';
 import { createCart } from './js/createCart';
+import { renderCarts } from './js/renderCarts';
 
 refs.form.addEventListener('submit', onFormSubmit);
+renderCarts();
 
 function onFormSubmit(event) {
     event.preventDefault();
-    
+
     const cart = createCart();
     addCart(cart);
+    event.currentTarget.reset();
 }
+
+
 
