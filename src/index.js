@@ -14,3 +14,17 @@
  * прибрати завдання зі списку.
  * Список із завданнями має бути доступним після перезавантаження сторінки.
  */
+
+import { refs } from './js/refs';
+import { addCart } from './js/localStorageAPI';
+import { createCart } from './js/createCart';
+
+refs.form.addEventListener('submit', onFormSubmit);
+
+function onFormSubmit(event) {
+    event.preventDefault();
+    
+    const cart = createCart();
+    addCart(cart);
+}
+
